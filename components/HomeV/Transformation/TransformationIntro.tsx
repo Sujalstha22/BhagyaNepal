@@ -3,7 +3,7 @@ import SectionLabel from "@/components/UI/SectionLabel";
 
 export default function TransformationIntro() {
   return (
-    <header className="relative flex h-[100svh] min-h-[620px] items-center justify-center overflow-hidden bg-(--paper)/40">
+    <header className="relative flex h-[80svh] min-h-[620px] items-center justify-center overflow-hidden bg-(--paper)">
       <div className="flex flex-col items-center py-[clamp(90px,13vh,140px)] text-center">
         <Reveal>
           <SectionLabel className="justify-center text-white/40">

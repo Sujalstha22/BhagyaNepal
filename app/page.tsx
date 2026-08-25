@@ -6,7 +6,8 @@
 // import MissionSection from "@/components/HomeV/MissionSection";
 import Impact from "@/components/Home/Impact";
 import Partners from "@/components/Home/Patners";
-import Vision from "@/components/Home/Vision";
+import VisionDivider from "@/components/HomeV/1stDivider";
+
 import AdvisoryBoard from "@/components/HomeV/Advisory";
 
 import FoundersStory from "@/components/HomeV/FoundersStory";
@@ -15,6 +16,7 @@ import ImpactStories from "@/components/HomeV/ImpactStory";
 import MissionSectionV2 from "@/components/HomeV/MissionSectionV2";
 import TransformationIntro from "@/components/HomeV/Transformation/TransformationIntro";
 import TransformationStory from "@/components/HomeV/Transformation/TransformationStory";
+import Vision from "@/components/HomeV/Vision";
 import Works from "@/components/HomeV/Works";
 import ScrollInvite from "@/components/Layout/ScrollInvite";
 
@@ -30,6 +32,7 @@ export default function Home() {
       <Hero />
       <TransformationIntro />
       <TransformationStory />
+      <VisionDivider />
       <FoundersStory />
       {/* <MissionSection /> */}
       <MissionSectionV2 />

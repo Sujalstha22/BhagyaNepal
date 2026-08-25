@@ -174,6 +174,7 @@ function HeroLandscape() {
         "
         fill="#d7e0b4"
       />
+
       <path
         d="
           M660 335

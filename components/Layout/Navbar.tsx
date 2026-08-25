@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-[var(--page-padding)] py-5 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-[var(--page-padding)] py-2 transition-all duration-300 ${
         solid
           ? "bg-[#f7f4ee]/90 shadow-[0_1px_0_#ddd6ca] backdrop-blur-md"
           : "bg-transparent"
@@ -39,19 +39,19 @@ export default function Navbar() {
     >
       <a
         href="#"
-        className={`text-[19px] transition-colors duration-300 ${
+        className={`text-[22px] editorial font-black uppercase transition-colors duration-300 ${
           solid ? "text-[#191611]" : "text-[#f7f4ee]"
         }`}
       >
         Bhagya Nepal
       </a>
 
-      <ul className="hidden items-center gap-8 md:flex">
+      <ul className="hidden items-center p-2 gap-6 md:flex">
         {links.map((link) => (
           <li key={link}>
             <a
               href="#"
-              className={`text-[12px] uppercase tracking-[0.08em] transition-colors ${
+              className={`text-[15px]  tracking-[0.08em] transition-colors ${
                 solid
                   ? "text-[#6f675b] hover:text-[#191611]"
                   : "text-[#f7f4ee]/70 hover:text-[#f7f4ee]"

@@ -20,7 +20,7 @@ export default function ScrollInvite() {
 
       gsap.to(arrowRef.current, {
         y: 5,
-        opacity: 0.45,
+        opacity: 0,
         duration: 1.4,
         repeat: -1,
         yoyo: true,

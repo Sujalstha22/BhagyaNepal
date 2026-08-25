@@ -178,7 +178,7 @@ export default function NarrativeStory() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 15%",
+          start: "top top",
           end: () =>
             `+=${window.innerHeight * transformationStages.length * 0.65}`,
           scrub: 1,
@@ -270,10 +270,7 @@ export default function NarrativeStory() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-(--paper)">
-      <div
-        ref={stageRef}
-        className="relative h-svh min-h-[680px] overflow-hidden"
-      >
+      <div ref={stageRef} className="relative h-svh overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-(--paper)" />
 
