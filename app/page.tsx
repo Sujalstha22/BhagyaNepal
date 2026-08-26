@@ -9,14 +9,16 @@ import Partners from "@/components/Home/Patners";
 import VisionDivider from "@/components/HomeV/1stDivider";
 
 import AdvisoryBoard from "@/components/HomeV/Advisory";
+import ContinuityPath from "@/components/HomeV/ContinuityPath";
 
 import FoundersStory from "@/components/HomeV/FoundersStory";
 import Hero from "@/components/HomeV/Hero";
 import ImpactStories from "@/components/HomeV/ImpactStory";
 import MissionSectionV2 from "@/components/HomeV/MissionSectionV2";
+import NarrativeStory from "@/components/HomeV/Transformation/NarrativeStory";
 import TransformationIntro from "@/components/HomeV/Transformation/TransformationIntro";
-import TransformationStory from "@/components/HomeV/Transformation/TransformationStory";
 import Vision from "@/components/HomeV/Vision";
+import WalkAlongSection from "@/components/HomeV/WalkAlongSection";
 import Works from "@/components/HomeV/Works";
 import ScrollInvite from "@/components/Layout/ScrollInvite";
 
@@ -30,8 +32,9 @@ export default function Home() {
       <Partners /> */}
 
       <Hero />
-      <TransformationIntro />
-      <TransformationStory />
+      {/* <TransformationIntro /> */}
+      <NarrativeStory />
+      {/* <ContinuityPath /> */}
       <VisionDivider />
       <FoundersStory />
       {/* <MissionSection /> */}
@@ -41,7 +44,8 @@ export default function Home() {
       <Impact />
       <Partners />
       <AdvisoryBoard />
-      <ImpactStories />
+      {/* <ImpactStories /> */}
+      <WalkAlongSection />
       <ScrollInvite />
     </div>
   );

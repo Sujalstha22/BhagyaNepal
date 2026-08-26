@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Works() {
   return (
-    <section className="p-25 h-screen text-center">
+    <section className="pt-20 px-20 h-screen text-center">
       <div>
         <SectionLabel className="justify-center">
           How we do what we do
@@ -45,13 +45,13 @@ export default function Works() {
           </p>
         </Reveal>
 
-        {/* <div className="mt-8 text-center">
+        <div className="mt-8 text-center">
           <Links>
             <Link href="/" className="link">
               See how our programmes work in practice
             </Link>
           </Links>
-        </div> */}
+        </div>
       </div>
     </section>
   );

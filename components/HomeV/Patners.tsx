@@ -37,7 +37,6 @@ export default function Partners() {
   return (
     <section className="w-full overflow-hidden py-[clamp(64px,9vh,96px)] text-center">
       <div className="w-full">
-        {/* Heading + description */}
         <div className="mx-auto w-full max-w-7xl px-6">
           <SectionLabel className="justify-center">In partnership</SectionLabel>
 
@@ -47,17 +46,12 @@ export default function Partners() {
           </p>
         </div>
 
-        {/* MARQUEE */}
         <div className="relative mx-auto mb-10 w-[60%] overflow-hidden">
-          {/* Left fade */}
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-(--paper) to-transparent" />
 
-          {/* Right fade */}
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-(--paper) to-transparent" />
 
-          {/* Moving track */}
           <div ref={trackRef} className="flex w-max shrink-0 items-center">
-            {/* SET 1 */}
             <div className="flex shrink-0 items-center gap-16 pr-16">
               {partners.map((partner) => (
                 <span
@@ -69,7 +63,6 @@ export default function Partners() {
               ))}
             </div>
 
-            {/* SET 2 */}
             <div className="flex shrink-0 items-center gap-16 pr-16">
               {partners.map((partner) => (
                 <span
@@ -95,13 +88,13 @@ export default function Partners() {
           </div>
         </div>
 
-        {/* <div className=" text-center">
+        <div className="mt-8 text-center">
           <Links>
-            <Link href="/" className="link text-center">
-              See all our partners
+            <Link href="/" className="link">
+              See how our programmes work in practice
             </Link>
           </Links>
-        </div> */}
+        </div>
       </div>
     </section>
   );

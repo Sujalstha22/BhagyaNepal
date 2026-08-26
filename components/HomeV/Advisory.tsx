@@ -27,7 +27,7 @@ const advisors = [
 
 export default function AdvisoryBoard() {
   return (
-    <section className="w-full overflow-hidden py-[clamp(80px,11vh,130px)]">
+    <section className="w-full overflow-hidden bg-(--pink) py-[clamp(80px,11vh,130px)]">
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="grid grid-cols-1 gap-[clamp(40px,5vw,72px)] sm:grid-cols-2 lg:grid-cols-3">
           {advisors.map((advisor) => (

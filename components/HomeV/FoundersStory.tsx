@@ -66,7 +66,7 @@ export default function FoundersStory() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[110vh] overflow-hidden bg-(--pink)"
+      className="relative h-[100vh] overflow-hidden bg-(--pink)"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[18%] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-(--amber)/[0.025] blur-3xl" />
@@ -88,7 +88,7 @@ export default function FoundersStory() {
               {/* <p className="text-[12px] uppercase tracking-[0.3em] text-(--mid)">
                 Portrait pending
               </p> */}
-              <Image src="/images/Founder2.png" alt="FOunder" fill />
+              <Image src="/images/Founder2.png" alt="Founder" fill />
             </div>
           </div>
 
