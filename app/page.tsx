@@ -22,6 +22,7 @@ import WalkAlongSection from "@/components/HomeV/WalkAlongSection";
 import Works from "@/components/HomeV/Works";
 import ScrollInvite from "@/components/Layout/ScrollInvite";
 import Partners from "@/components/HomeV/Patners";
+import Support from "@/components/HomeV/Support";
 
 export default function Home() {
   return (
@@ -47,6 +48,7 @@ export default function Home() {
       <Partners />
       <AdvisoryBoard />
       <WalkAlongSection />
+      <Support />
       <ScrollInvite />
     </div>
   );

@@ -12,9 +12,6 @@ export default function WalkAlongSection() {
 
   const portraits = walkAlongStory.portraits.slice(0, 3);
 
-  /*
-   * Automatic carousel
-   */
   useEffect(() => {
     if (portraits.length <= 1) return;
 
@@ -25,10 +22,6 @@ export default function WalkAlongSection() {
     return () => window.clearInterval(interval);
   }, [portraits.length]);
 
-  /*
-   * Minimal GSAP transition.
-   * CSS handles the actual carousel layout.
-   */
   useEffect(() => {
     if (!portraitRef.current) return;
 

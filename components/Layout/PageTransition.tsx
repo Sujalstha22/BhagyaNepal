@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Preloader from "./Preloader";
+
+const STORAGE_KEY = "bhagya-loaded";
 
 export default function PageTransition({
   children,
@@ -13,45 +15,53 @@ export default function PageTransition({
 
   const [loading, setLoading] = useState(true);
   const [firstLoad, setFirstLoad] = useState(true);
-  const [previousPath, setPreviousPath] = useState(pathname);
+
+  const previousPathRef = useRef(pathname);
+  const mountedRef = useRef(false);
 
   useEffect(() => {
-    const alreadyLoaded = sessionStorage.getItem("bhagya-loaded");
+    const alreadyLoaded = sessionStorage.getItem(STORAGE_KEY);
 
-    if (alreadyLoaded) {
+    if (alreadyLoaded === "true") {
       setFirstLoad(false);
       setLoading(false);
     } else {
-      sessionStorage.setItem("bhagya-loaded", "true");
+      setFirstLoad(true);
+      setLoading(true);
     }
+
+    mountedRef.current = true;
   }, []);
 
   useEffect(() => {
-    if (pathname === previousPath) {
-      return;
-    }
+    if (!mountedRef.current) return;
 
-    setPreviousPath(pathname);
+    if (pathname === previousPathRef.current) return;
+
+    previousPathRef.current = pathname;
+
     setFirstLoad(false);
     setLoading(true);
-  }, [pathname, previousPath]);
+  }, [pathname]);
+
+  const handleComplete = () => {
+    sessionStorage.setItem(STORAGE_KEY, "true");
+    setLoading(false);
+  };
 
   return (
     <>
-      {loading && (
-        <Preloader
-          duration={firstLoad ? 2.8 : 1.4}
-          onComplete={() => setLoading(false)}
-        />
-      )}
+      {loading && <Preloader duration={7.5} onComplete={handleComplete} />}
 
-      <div
-        className={`transition-opacity duration-500 ${
-          loading ? "opacity-0" : "opacity-100"
+      <main
+        className={`transition-opacity duration-1000 ease-out ${
+          loading
+            ? "pointer-events-none opacity-0"
+            : "pointer-events-auto opacity-100"
         }`}
       >
         {children}
-      </div>
+      </main>
     </>
   );
 }

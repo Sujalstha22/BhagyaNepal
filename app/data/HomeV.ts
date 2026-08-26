@@ -66,17 +66,17 @@ export const walkAlongStory = {
     "We don’t rush a story out of a child just to fill a page. Some sit with us for months before a single word makes it here — told at their pace, in their words, with a guardian’s hand always somewhere nearby. What you’re reading isn’t a case file. It’s a child deciding they were ready to be heard, and us doing our best to keep up.",
   portraits: [
     {
-      image: "/images/homev/child-01.jpg",
+      image: "/images/alumni/child-01.jpeg",
       alt: "A caregiver spending time with a child",
       placeholder: "A moment shared at their own pace.",
     },
     {
-      image: "/images/homev/child-02.jpg",
+      image: "/images/alumni/child-02.jpeg",
       alt: "A child learning with a caregiver",
       placeholder: "Small steps can become a different future.",
     },
     {
-      image: "/images/homev/child-03.jpg",
+      image: "/images/alumni/child-03.jpeg",
       alt: "A child talking with a caregiver",
       placeholder: "Sometimes being heard is where change begins.",
     },
@@ -171,5 +171,37 @@ export const missionPhotos = [
     className:
       "left-[35%] top-[27%] w-[210px] rotate-[-3deg] md:left-[40%] md:w-[260px]",
     caption: "Every child deserves someone who stays.",
+  },
+];
+
+export type Advisor = {
+  name: string;
+  role: string;
+  note: string;
+  image: string;
+  href: string;
+};
+
+export const advisors: Advisor[] = [
+  {
+    name: "Lisa LaFlamme",
+    role: "Award-winning Canadian journalist",
+    note: "Descriptor pending advisor approval",
+    image: "/images/Advisory/lisa laflammel.jpg",
+    href: "/team-advisory#lisa-laflamme",
+  },
+  {
+    name: "Inmaculada Riera i Reñé",
+    role: "Director-General, Spanish Chamber of Commerce",
+    note: "Descriptor pending advisor approval",
+    image: "/images/Advisory/InmaculadaRiera.jpg",
+    href: "/team-advisory#inmaculada-riera",
+  },
+  {
+    name: "Callie Fauntleroy",
+    role: "Child rights & education specialist",
+    note: "Role to be confirmed by advisor",
+    image: "/images/Advisory/callie.jpg",
+    href: "/team-advisory#callie-fauntleroy",
   },
 ];

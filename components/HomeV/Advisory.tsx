@@ -1,29 +1,6 @@
+import { advisors } from "@/app/data/HomeV";
 import Image from "next/image";
 import Link from "next/link";
-
-const advisors = [
-  {
-    name: "Lisa LaFlamme",
-    role: "Award-winning Canadian journalist",
-    note: "Descriptor pending advisor approval",
-    image: "/images/advisory/lisa laflammel.jpg",
-    href: "/team-advisory#lisa-laflamme",
-  },
-  {
-    name: "Inmaculada Riera i Reñé",
-    role: "Director-General, Spanish Chamber of Commerce",
-    note: "Descriptor pending advisor approval",
-    image: "/images/advisory/InmaculadaRiera.jpg",
-    href: "/team-advisory#inmaculada-riera",
-  },
-  {
-    name: "Callie Fauntleroy",
-    role: "Child rights & education specialist",
-    note: "Role to be confirmed by advisor",
-    image: "/images/advisory/callie.jpg",
-    href: "/team-advisory#callie-fauntleroy",
-  },
-];
 
 export default function AdvisoryBoard() {
   return (

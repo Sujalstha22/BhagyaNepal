@@ -64,10 +64,6 @@ export default function Hero() {
 
   return (
     <section className="relative w-full">
-      {/* -------------------------------------------------------------- */}
-      {/* HERO IMAGE                                                     */}
-      {/* -------------------------------------------------------------- */}
-
       <div
         className="
           relative
@@ -80,13 +76,8 @@ export default function Hero() {
           lg:h-[105svh]
         "
       >
-        <DissolvingHeroSection imageUrl="/images/home/Hero1.jpeg" />
+        <DissolvingHeroSection imageUrl="/images/Home/Hero1.jpeg" />
       </div>
-
-      {/* -------------------------------------------------------------- */}
-      {/* TEXT CONTENT                                                   */}
-      {/* -------------------------------------------------------------- */}
-
       <div
         className="
           relative

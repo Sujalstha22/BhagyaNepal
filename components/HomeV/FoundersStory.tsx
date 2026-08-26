@@ -85,9 +85,7 @@ export default function FoundersStory() {
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-(--rule)">
                 <span className="editorial text-xl text-(--faint)">—</span>
               </div>
-              {/* <p className="text-[12px] uppercase tracking-[0.3em] text-(--mid)">
-                Portrait pending
-              </p> */}
+
               <Image src="/images/Founder2.png" alt="Founder" fill />
             </div>
           </div>
