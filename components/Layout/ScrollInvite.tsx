@@ -82,12 +82,12 @@ export default function ScrollInvite() {
             text-(--ink-soft)
           "
         >
-          There&apos;s more to their story
+          Scroll
         </span>
 
         {/* Scroll indicator */}
         <div className="flex flex-col items-center">
-          <span ref={lineRef} className="block h-4 w-[1.5px] bg-white/70" />
+          <span ref={lineRef} className="block h-4 w-[1.5px] bg-(--ink)/70" />
 
           <span
             ref={arrowRef}

@@ -124,13 +124,6 @@ em,
   text-transform: uppercase;
 }
 
-.sectionLabel::after {
-  content: "";
-  width: 36px;
-  height: 1px;
-  background: var(--rule);
-}
-
 .darkSection .sectionLabel {
   color: rgba(247, 244, 238, 0.42);
 }

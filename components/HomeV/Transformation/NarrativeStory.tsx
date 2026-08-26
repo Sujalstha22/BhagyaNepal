@@ -494,16 +494,16 @@ export default function NarrativeStory() {
             A single story. Every child&apos;s story.
           </p>
 
-          <h2
+          <h1
             ref={introTitleRef}
-            className="editorial max-w-6xl text-[clamp(48px,5vw,96px)] font-light leading-[0.92] tracking-[-0.035em] text-(--ink)"
+            className="editorial max-w-7xl text-[clamp(48px,7vw,96px)]  leading-[0.92] tracking-[0.01em] text-(--ink)"
           >
             Two paths.
             <br />
             <span className="text-(--ink-soft)/60">
               One moment of intervention.
             </span>
-          </h2>
+          </h1>
 
           <p
             ref={introCopyRef}

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import BtnAnimation from "../UI/BtnAnimation";
 
 const links = [
+  "About Us",
   "Founder's Story",
   "Programs",
   "Impact Stories",
@@ -54,18 +55,17 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  // Prevent background scrolling while mobile menu is open
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  const linkColor = solid
+    ? "text-(--ink)/65 hover:text-(--ink)"
+    : "text-(--rule)/75 hover:text-(--rule)";
 
   return (
     <>
@@ -89,50 +89,24 @@ export default function Navbar() {
         <div className="flex w-full items-center justify-center gap-[clamp(18px,2.4vw,42px)]">
           {/* Left links */}
           <div className="flex items-center justify-center gap-[clamp(16px,2vw,34px)]">
-            {links.slice(0, 2).map((link) => (
-              <BtnAnimation
-                key={link}
-                href="#"
-                className={[
-                  "whitespace-nowrap text-[15px] tracking-[0.06em]",
-                  solid
-                    ? "text-(--ink)/65 hover:text-(--ink)"
-                    : "text-(--rule)/75 hover:text-(--rule)",
-                ].join(" ")}
-              >
+            {links.slice(0, 3).map((link) => (
+              <NavLink key={link} className={linkColor}>
                 {link}
-              </BtnAnimation>
+              </NavLink>
             ))}
           </div>
 
           {/* Logo */}
-          <p
-            className={[
-              "shrink-0 whitespace-nowrap",
-              "editorial text-[24px] font-black uppercase",
-              "tracking-[-0.02em]",
-              solid ? "text-(--amber)" : "text-(--amber)",
-              "transition-colors duration-300",
-            ].join(" ")}
-          >
+          <p className="editorial shrink-0 whitespace-nowrap text-[24px] font-black uppercase tracking-[-0.02em] text-(--amber)">
             Bhagya Nepal
           </p>
 
           {/* Right links */}
           <div className="flex items-center justify-center gap-[clamp(16px,2vw,34px)]">
-            {links.slice(2).map((link) => (
-              <BtnAnimation
-                key={link}
-                href="#"
-                className={[
-                  "whitespace-nowrap text-[15px] tracking-[0.06em]",
-                  solid
-                    ? "text-(--ink)/65 hover:text-(--ink)"
-                    : "text-(--rule)/75 hover:text-(--rule)",
-                ].join(" ")}
-              >
+            {links.slice(3).map((link) => (
+              <NavLink key={link} className={linkColor}>
                 {link}
-              </BtnAnimation>
+              </NavLink>
             ))}
           </div>
         </div>
@@ -156,13 +130,7 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <p
-            className={[
-              "editorial text-[20px] font-black uppercase",
-              "tracking-[-0.02em]",
-              "text-(--amber)",
-            ].join(" ")}
-          >
+          <p className="editorial text-[20px] font-black uppercase tracking-[-0.02em] text-(--amber)">
             Bhagya Nepal
           </p>
 
@@ -177,9 +145,7 @@ export default function Navbar() {
             }}
             className={[
               "flex h-10 w-10 flex-col items-center justify-center",
-              "gap-1.5",
-              "rounded-full",
-              "border",
+              "gap-1.5 rounded-full border",
               solid || menuOpen ? "border-(--ink)/20" : "border-(--rule)/40",
             ].join(" ")}
           >
@@ -210,32 +176,17 @@ export default function Navbar() {
         className={[
           "fixed inset-0 z-50 md:hidden",
           "bg-(--paper)",
-          "transition-all duration-500",
-          "ease-[cubic-bezier(.22,1,.36,1)]",
+          "transition-opacity duration-500",
           menuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0",
         ].join(" ")}
       >
         <div className="flex min-h-full flex-col px-(--page-padding) pb-10 pt-28">
-          {/* Navigation links */}
           <div className="flex flex-col">
-            {links.map((link, index) => (
-              <div
-                key={link}
-                className={[
-                  "border-b border-(--ink)/10",
-                  "transition-all duration-500",
-                  menuOpen
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0",
-                ].join(" ")}
-                style={{
-                  transitionDelay: menuOpen ? `${index * 70}ms` : "0ms",
-                }}
-              >
-                <BtnAnimation
-                  href="#"
+            {links.map((link) => (
+              <div key={link} className="border-b border-(--ink)/10">
+                <NavLink
                   onClick={() => setMenuOpen(false)}
                   className="
                     flex
@@ -253,12 +204,11 @@ export default function Navbar() {
                   <span>{link}</span>
 
                   <span className="text-[1rem] text-(--amber)">↗</span>
-                </BtnAnimation>
+                </NavLink>
               </div>
             ))}
           </div>
 
-          {/* Bottom text */}
           <div className="mt-auto pt-10">
             <p className="editorial max-w-xs text-sm leading-relaxed text-(--ink)/50">
               Education, opportunity, and sustained support — one child at a
@@ -268,5 +218,49 @@ export default function Navbar() {
         </div>
       </div>
     </>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Navigation Link                                                            */
+/* -------------------------------------------------------------------------- */
+
+type NavLinkProps = {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+};
+
+function NavLink({ children, className = "", onClick }: NavLinkProps) {
+  return (
+    <a
+      href="#"
+      onClick={onClick}
+      className={[
+        "group relative inline-flex w-fit",
+        "transition-colors duration-300",
+        className,
+      ].join(" ")}
+    >
+      <span>{children}</span>
+
+      <span
+        aria-hidden="true"
+        className="
+          absolute
+          -bottom-1
+          left-0
+          h-px
+          w-full
+          origin-left
+          scale-x-0
+          bg-(--amber)
+          transition-transform
+          duration-300
+          ease-out
+          group-hover:scale-x-100
+        "
+      />
+    </a>
   );
 }

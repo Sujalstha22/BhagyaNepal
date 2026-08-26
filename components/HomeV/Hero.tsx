@@ -72,8 +72,8 @@ export default function Hero() {
           min-h-[520px]
           overflow-hidden
           sm:h-[95svh]
-          md:h-[100svh]
-          lg:h-[105svh]
+          md:h-[120svh]
+          lg:h-[120svh]
         "
       >
         <DissolvingHeroSection imageUrl="/images/Home/Hero1.jpeg" />
