@@ -72,9 +72,9 @@ export default function FoundersStory() {
         <div className="absolute left-1/2 top-[18%] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-(--amber)/[0.025] blur-3xl" />
       </div>
 
-      <div className="relative mx-auto flex h-full max-w-[900px] flex-col items-center px-(--page-padding)">
+      <div className="relative mx-auto flex h-full max-w-7vw flex-col items-center px-(--page-padding)">
         <div className="flex justify-center pt-[clamp(40px,6vh,70px)]">
-          <p className="text-[8px] uppercase tracking-[1.2em] text-(--mid)">
+          <p className="text-[16px] uppercase tracking-[1em] text-(--mid)">
             The founder's story
           </p>
         </div>

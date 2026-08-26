@@ -202,8 +202,6 @@ export default function Navbar() {
                   "
                 >
                   <span>{link}</span>
-
-                  <span className="text-[1rem] text-(--amber)">↗</span>
                 </NavLink>
               </div>
             ))}

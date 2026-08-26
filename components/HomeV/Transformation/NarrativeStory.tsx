@@ -500,7 +500,7 @@ export default function NarrativeStory() {
           >
             Two paths.
             <br />
-            <span className="text-(--ink-soft)/60">
+            <span className="text-(--ink-soft)/60 ">
               One moment of intervention.
             </span>
           </h1>
