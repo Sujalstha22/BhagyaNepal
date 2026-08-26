@@ -8,7 +8,10 @@ interface PreloaderProps {
   duration?: number;
 }
 
-export default function Preloader({ onComplete, duration }: PreloaderProps) {
+export default function Preloader({
+  onComplete,
+  duration = 7,
+}: PreloaderProps) {
   const loaderRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const quoteRef = useRef<HTMLDivElement>(null);
