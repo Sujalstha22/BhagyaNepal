@@ -152,21 +152,21 @@ export const missionContent = {
 
 export const missionPhotos = [
   {
-    src: "/images/child-01.jpg",
+    src: "/images/child-01.jpeg",
     alt: "A child supported by Bhagya Nepal",
     className:
       "left-[5%] top-[43%] w-[190px] rotate-[-7deg] md:left-[7%] md:w-[235px]",
     caption: "Education creates possibility.",
   },
   {
-    src: "/images/child-02.jpg",
+    src: "/images/child-02.jpeg",
     alt: "Children learning together",
     className:
       "right-[6%] top-[10%] w-[200px] rotate-[7deg] md:right-[10%] md:w-[240px]",
     caption: "A safe place to learn, grow and become.",
   },
   {
-    src: "/images/child-03.jpg",
+    src: "/images/child-03.jpeg",
     alt: "Children spending time together",
     className:
       "left-[35%] top-[27%] w-[210px] rotate-[-3deg] md:left-[40%] md:w-[260px]",

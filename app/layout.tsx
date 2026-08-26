@@ -4,6 +4,7 @@ import "./globals.css";
 import PageTransition from "@/components/Layout/PageTransition";
 import Navbar from "@/components/Layout/Navbar";
 import LenisProvider from "@/Provider/LenisProvider";
+import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "Bhagya-Nepal",
@@ -15,8 +16,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html>
       <body className="min-h-full flex flex-col">
         <PageTransition>
-          <Navbar />
-          <LenisProvider>{children}</LenisProvider>
+          <LenisProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </LenisProvider>
         </PageTransition>
       </body>
     </html>

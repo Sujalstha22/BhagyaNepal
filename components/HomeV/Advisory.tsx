@@ -6,21 +6,21 @@ const advisors = [
     name: "Lisa LaFlamme",
     role: "Award-winning Canadian journalist",
     note: "Descriptor pending advisor approval",
-    image: "/images/advisory/lisa-laflamme.webp",
+    image: "/images/advisory/lisa laflammel.jpg",
     href: "/team-advisory#lisa-laflamme",
   },
   {
     name: "Inmaculada Riera i Reñé",
     role: "Director-General, Spanish Chamber of Commerce",
     note: "Descriptor pending advisor approval",
-    image: "/images/advisory/inmaculada-riera.webp",
+    image: "/images/advisory/InmaculadaRiera.jpg",
     href: "/team-advisory#inmaculada-riera",
   },
   {
     name: "Callie Fauntleroy",
     role: "Child rights & education specialist",
     note: "Role to be confirmed by advisor",
-    image: "/images/advisory/callie-fauntleroy.webp",
+    image: "/images/advisory/callie.jpg",
     href: "/team-advisory#callie-fauntleroy",
   },
 ];
@@ -43,19 +43,16 @@ export default function AdvisoryBoard() {
                   fill
                   className="
                     object-cover
-                    grayscale
+                    grayscale-[0.4]
                     opacity-90
                     transition-all
                     duration-700
                     ease-out
                     group-hover:scale-[1.025]
-                    group-hover:grayscale-[0.7]
+                    group-hover:grayscale-0
                     group-hover:opacity-100
                   "
                 />
-                <div className="pointer-events-none absolute inset-0 bg-(--amber)/[0.06] mix-blend-color" />
-
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_65%,rgba(25,22,17,0.08)_100%)]" />
               </div>
 
               <p className="editorial mt-5 text-[clamp(18px,2vw,23px)] leading-[1.2] text-(--ink)">
