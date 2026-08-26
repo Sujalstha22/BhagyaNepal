@@ -6,16 +6,19 @@ type BtnAnimationProps = {
   children: ReactNode;
   className?: string;
   href?: string;
+  onClick?: () => void;
 };
 
 export default function BtnAnimation({
   children,
   className = "",
   href = "#",
+  onClick,
 }: BtnAnimationProps) {
   return (
     <a
       href={href}
+      onClick={onClick}
       className={[
         "group relative inline-flex overflow-hidden",
         "transition-transform duration-300 ease-out",
