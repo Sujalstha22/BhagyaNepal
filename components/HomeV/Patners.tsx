@@ -4,9 +4,10 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 import SectionLabel from "../UI/SectionLabel";
-import { partners } from "@/app/data/home";
+
 import Links from "../UI/Links";
 import Link from "next/link";
+import { partners } from "@/app/data/HomeV";
 
 export default function Partners() {
   const trackRef = useRef<HTMLDivElement>(null);

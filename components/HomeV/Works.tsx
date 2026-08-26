@@ -1,8 +1,8 @@
-import { pillars } from "@/app/data/home";
 import Reveal from "../UI/Reveal";
 import SectionLabel from "../UI/SectionLabel";
 import Links from "../UI/Links";
 import Link from "next/link";
+import { pillars } from "@/app/data/HomeV";
 
 export default function Works() {
   return (

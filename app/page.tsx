@@ -4,8 +4,8 @@
 // import Partners from "@/components/Home/Patners";
 // import Mission from "@/components/Home/Mission";
 // import MissionSection from "@/components/HomeV/MissionSection";
-import Impact from "@/components/Home/Impact";
-import Partners from "@/components/Home/Patners";
+import Impact from "@/components/HomeV/Impact";
+
 import VisionDivider from "@/components/HomeV/1stDivider";
 
 import AdvisoryBoard from "@/components/HomeV/Advisory";
@@ -16,11 +16,12 @@ import Hero from "@/components/HomeV/Hero";
 import ImpactStories from "@/components/HomeV/ImpactStory";
 import MissionSectionV2 from "@/components/HomeV/MissionSectionV2";
 import NarrativeStory from "@/components/HomeV/Transformation/NarrativeStory";
-import TransformationIntro from "@/components/HomeV/Transformation/TransformationIntro";
+
 import Vision from "@/components/HomeV/Vision";
 import WalkAlongSection from "@/components/HomeV/WalkAlongSection";
 import Works from "@/components/HomeV/Works";
 import ScrollInvite from "@/components/Layout/ScrollInvite";
+import Partners from "@/components/HomeV/Patners";
 
 export default function Home() {
   return (
@@ -30,21 +31,21 @@ export default function Home() {
       <Mission />
       <HowBhagyaWorks />
       <Partners /> */}
+      {/* <TransformationIntro /> */}
+      {/* <ContinuityPath /> */}
+      {/* <MissionSection /> */}
+      {/* <ImpactStories /> */}
 
       <Hero />
-      {/* <TransformationIntro /> */}
       <NarrativeStory />
-      {/* <ContinuityPath /> */}
       <VisionDivider />
       <FoundersStory />
-      {/* <MissionSection /> */}
       <MissionSectionV2 />
       <Vision />
       <Works />
       <Impact />
       <Partners />
       <AdvisoryBoard />
-      {/* <ImpactStories /> */}
       <WalkAlongSection />
       <ScrollInvite />
     </div>

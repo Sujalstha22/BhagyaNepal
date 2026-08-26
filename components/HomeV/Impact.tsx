@@ -1,6 +1,5 @@
-import { impactStats } from "@/app/data/home";
+import { impactStats } from "@/app/data/HomeV";
 import Reveal from "../UI/Reveal";
-import SectionLabel from "../UI/SectionLabel";
 
 export default function Impact() {
   return (

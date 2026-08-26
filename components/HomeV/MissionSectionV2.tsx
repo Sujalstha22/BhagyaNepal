@@ -1,8 +1,8 @@
 "use client";
 
-import { missionContent, missionPhotos } from "@/app/data/home";
 import Image from "next/image";
 import Reveal from "../UI/Reveal";
+import { missionContent, missionPhotos } from "@/app/data/HomeV";
 
 export default function MissionSectionV2() {
   return (

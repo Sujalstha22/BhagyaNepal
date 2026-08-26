@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { transformationStages } from "@/app/data/HomeV";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +21,13 @@ type StoryVisualProps = {
   variant: "without" | "with";
 };
 
+/* -------------------------------------------------------------------------- */
+/* Story Visual                                                               */
+/* -------------------------------------------------------------------------- */
+
 function StoryVisual({ image, variant }: StoryVisualProps) {
   return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden">
+    <div className={"relative aspect-[4/3] w-full overflow-hidden "}>
       <Image
         src={image}
         alt=""
@@ -34,6 +38,10 @@ function StoryVisual({ image, variant }: StoryVisualProps) {
     </div>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/* Story Stage                                                                */
+/* -------------------------------------------------------------------------- */
 
 function StoryStage({
   stage,
@@ -68,6 +76,8 @@ function StoryStage({
       ref={stageRef}
       className="pointer-events-none absolute inset-0 z-10 opacity-0"
     >
+      {/* AGE */}
+
       <div className="absolute left-1/2 top-[10%] z-30 -translate-x-1/2 text-center">
         <p className="mb-1 text-[8px] uppercase tracking-[0.3em] text-(--faint) sm:text-[9px] sm:tracking-[0.35em]">
           Age
@@ -77,6 +87,8 @@ function StoryStage({
           {stage.age}
         </p>
       </div>
+
+      {/* WITHOUT */}
 
       <div
         ref={withoutRef}
@@ -100,6 +112,8 @@ function StoryStage({
           </p>
         </div>
       </div>
+
+      {/* WITH */}
 
       <div
         ref={withRef}
@@ -127,6 +141,10 @@ function StoryStage({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Narrative Story                                                            */
+/* -------------------------------------------------------------------------- */
+
 export default function NarrativeStory() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
@@ -138,9 +156,6 @@ export default function NarrativeStory() {
   const meterRef = useRef<HTMLDivElement | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
   const dotRef = useRef<HTMLDivElement | null>(null);
-
-  const backgroundImageRef = useRef<HTMLDivElement | null>(null);
-  const playfulBlobRef = useRef<HTMLDivElement | null>(null);
 
   const stageItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const withoutRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -154,14 +169,20 @@ export default function NarrativeStory() {
 
     const ctx = gsap.context(() => {
       const stages = stageItemsRef.current.filter(Boolean) as HTMLDivElement[];
+
       const withoutItems = withoutRef.current.filter(
         Boolean,
       ) as HTMLDivElement[];
+
       const withItems = withRef.current.filter(Boolean) as HTMLDivElement[];
 
       const stageCount = stages.length;
 
       if (!stageCount) return;
+
+      /* -------------------------------------------------------------------- */
+      /* Initial state                                                        */
+      /* -------------------------------------------------------------------- */
 
       gsap.set(introRef.current, {
         autoAlpha: 1,
@@ -202,18 +223,9 @@ export default function NarrativeStory() {
         autoAlpha: 0,
       });
 
-      gsap.set(backgroundImageRef.current, {
-        autoAlpha: 0,
-        scale: 1.08,
-        x: -20,
-        y: 30,
-      });
-
-      gsap.set(playfulBlobRef.current, {
-        autoAlpha: 0,
-        scale: 0.75,
-        rotation: -12,
-      });
+      /* -------------------------------------------------------------------- */
+      /* Responsive setup                                                     */
+      /* -------------------------------------------------------------------- */
 
       const mm = gsap.matchMedia();
 
@@ -231,30 +243,9 @@ export default function NarrativeStory() {
           },
         });
 
-        timeline.to(
-          backgroundImageRef.current,
-          {
-            autoAlpha: 0.14,
-            scale: 1,
-            x: 20,
-            y: 0,
-            duration: 2,
-            ease: "power2.out",
-          },
-          0,
-        );
-
-        timeline.to(
-          playfulBlobRef.current,
-          {
-            autoAlpha: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 1.2,
-            ease: "back.out(1.4)",
-          },
-          0.35,
-        );
+        /* -------------------------------------------------------------- */
+        /* 1. Intro dissolves                                             */
+        /* -------------------------------------------------------------- */
 
         timeline.to(
           introTitleRef.current,
@@ -287,6 +278,10 @@ export default function NarrativeStory() {
           0.55,
         );
 
+        /* -------------------------------------------------------------- */
+        /* 2. Meter appears AFTER intro                                   */
+        /* -------------------------------------------------------------- */
+
         timeline.to(
           meterRef.current,
           {
@@ -297,8 +292,14 @@ export default function NarrativeStory() {
           0.72,
         );
 
+        /* -------------------------------------------------------------- */
+        /* 3. Story stages                                                */
+        /* -------------------------------------------------------------- */
+
         stages.forEach((_, index) => {
           const start = 0.95 + index;
+
+          /* Age + content enter together */
 
           timeline.to(
             [stages[index], withoutItems[index], withItems[index]],
@@ -309,6 +310,8 @@ export default function NarrativeStory() {
             },
             start,
           );
+
+          /* Age meter grows with the story */
 
           timeline.to(
             progressRef.current,
@@ -331,6 +334,8 @@ export default function NarrativeStory() {
             start,
           );
 
+          /* Previous stage dissolves */
+
           if (index < stageCount - 1) {
             timeline.to(
               [stages[index], withoutItems[index], withItems[index]],
@@ -343,19 +348,11 @@ export default function NarrativeStory() {
             );
           }
         });
-
-        timeline.to(
-          backgroundImageRef.current,
-          {
-            autoAlpha: 0.07,
-            scale: 1.03,
-            x: 35,
-            duration: 1,
-            ease: "power1.inOut",
-          },
-          ">",
-        );
       });
+
+      /* -------------------------------------------------------------------- */
+      /* Mobile                                                               */
+      /* -------------------------------------------------------------------- */
 
       mm.add("(max-width: 767px)", () => {
         const timeline = gsap.timeline({
@@ -371,30 +368,7 @@ export default function NarrativeStory() {
           },
         });
 
-        timeline.to(
-          backgroundImageRef.current,
-          {
-            autoAlpha: 0.1,
-            scale: 1,
-            x: 12,
-            y: 0,
-            duration: 2,
-            ease: "power2.out",
-          },
-          0,
-        );
-
-        timeline.to(
-          playfulBlobRef.current,
-          {
-            autoAlpha: 0.7,
-            scale: 1,
-            rotation: 0,
-            duration: 1,
-            ease: "back.out(1.3)",
-          },
-          0.3,
-        );
+        /* Intro */
 
         timeline.to(
           introTitleRef.current,
@@ -427,6 +401,8 @@ export default function NarrativeStory() {
           0.55,
         );
 
+        /* Meter */
+
         timeline.to(
           meterRef.current,
           {
@@ -435,6 +411,8 @@ export default function NarrativeStory() {
           },
           0.7,
         );
+
+        /* Stages */
 
         stages.forEach((_, index) => {
           const start = 0.9 + index;
@@ -482,18 +460,6 @@ export default function NarrativeStory() {
             );
           }
         });
-
-        timeline.to(
-          backgroundImageRef.current,
-          {
-            autoAlpha: 0.05,
-            scale: 1.02,
-            x: 20,
-            duration: 1,
-            ease: "power1.inOut",
-          },
-          ">",
-        );
       });
     }, section);
 
@@ -506,26 +472,19 @@ export default function NarrativeStory() {
         ref={stageRef}
         className="relative h-svh min-h-[560px] overflow-hidden"
       >
-        <div
-          ref={backgroundImageRef}
-          className="pointer-events-none absolute inset-0 z-99 overflow-hidden"
-        >
-          <Image
-            src="/images/story-overlay.jpeg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-center grayscale opacity-80"
-          />
-        </div>
-
         <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-(--paper)/20" />
+          <div className="absolute inset-0 bg-(--paper)" />
 
           <div className="absolute left-[15%] top-[18%] size-[clamp(180px,25vw,288px)] rounded-full bg-(--amber)/[0.025] blur-3xl" />
 
           <div className="absolute bottom-[12%] right-[12%] size-[clamp(200px,27vw,320px)] rounded-full bg-(--ink)/[0.018] blur-3xl" />
         </div>
+
+        {/* <div className="absolute left-[var(--page-padding)] top-8 z-50">
+          <p className="text-[8px] uppercase tracking-[0.3em] text-(--mid) sm:text-[10px] sm:tracking-[0.35em]">
+            The paths we don&apos;t see
+          </p>
+        </div> */}
 
         <div
           ref={introRef}
@@ -571,7 +530,11 @@ export default function NarrativeStory() {
             md:block
           "
         >
+          {/* Base */}
+
           <div className="absolute inset-0 w-px bg-(--rule)/35" />
+
+          {/* Progress */}
 
           <div
             ref={progressRef}
@@ -586,12 +549,14 @@ export default function NarrativeStory() {
             "
           />
 
+          {/* Current age marker */}
+
           <div
             ref={dotRef}
             className="
               absolute
               left-1/2
-              top-0
+              top:0
               size-[7px]
               -translate-x-1/2
               -translate-y-1/2
@@ -600,6 +565,10 @@ export default function NarrativeStory() {
             "
           />
         </div>
+
+        {/* ---------------------------------------------------------------- */}
+        {/* Story stages                                                     */}
+        {/* ---------------------------------------------------------------- */}
 
         <div className="absolute inset-0 z-10">
           {transformationStages.map((stage, index) => (
